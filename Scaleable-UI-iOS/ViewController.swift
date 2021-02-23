@@ -34,6 +34,28 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupViews()
+        self.addJoinLeave()
+        self.joinChannel()
+    }
+    var joinLeaveButton: UIButton?
+    func addJoinLeave() {
+        let btn = UIButton(type: .roundedRect)
+        btn.setTitle("Leave", for: .normal)
+        btn.backgroundColor = .systemRed
+        btn.backgroundColor = .secondarySystemBackground
+        btn.layer.cornerRadius = 10
+        btn.addTarget(self, action: #selector(toggleJoinChannel), for: .touchUpInside)
+        self.joinLeaveButton = btn
+        self.view.addSubview(btn)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor).isActive = true
+        btn.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        btn.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        btn.isEnabled = false
+        btn.isHidden = true
+    }
+
+    func joinChannel() {
         self.agkit.joinChannel(
             byToken: nil, channelId: "test", info: nil, uid: 0
         ) { _, uid, _ in
@@ -45,6 +67,35 @@ class ViewController: UIViewController {
             self.usersCanvasMap[self.myUserID] = localCanvas
             self.agkit.setupLocalVideo(localCanvas)
             self.collectionView?.reloadData()
+            self.joinLeaveButton?.setTitle("Leave", for: .normal)
+            self.joinLeaveButton?.backgroundColor = .systemRed
+            self.joinLeaveButton?.isEnabled = true
+            self.joinLeaveButton?.isHidden = false
+        }
+    }
+
+    func leaveChannel() {
+        if self.agkit.leaveChannel() == 0 {
+            for (_, item) in usersCanvasMap.enumerated() {
+                item.value.view?.removeFromSuperview()
+                item.value.view = nil
+            }
+            usersCanvasMap.removeAll()
+            self.videoUsers.removeAll()
+            self.collectionView?.reloadData()
+
+            self.joinLeaveButton?.setTitle("Join", for: .normal)
+            self.joinLeaveButton?.backgroundColor = .systemGreen
+        }
+        self.joinLeaveButton?.isEnabled = true
+    }
+
+    @objc func toggleJoinChannel() {
+        self.joinLeaveButton?.isEnabled = false
+        if self.joinLeaveButton?.title(for: .normal) == "Leave" {
+            self.leaveChannel()
+        } else {
+            self.joinChannel()
         }
     }
     var collectionView: UICollectionView?

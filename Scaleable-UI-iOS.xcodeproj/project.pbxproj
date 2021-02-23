@@ -89,9 +89,9 @@
 				F3AE630E25DC3F7D007E0F69 /* AppDelegate.swift */,
 				F3AE631025DC3F7D007E0F69 /* SceneDelegate.swift */,
 				F3AE631225DC3F7D007E0F69 /* ViewController.swift */,
-				F3AE632925E3FC7C007E0F69 /* AgoraCollectionItem.swift */,
 				F3AE632325E3FC20007E0F69 /* ViewController+AgoraRtcEngineDelegate.swift */,
 				F3AE632625E3FC57007E0F69 /* ViewController+UIViewController.swift */,
+				F3AE632925E3FC7C007E0F69 /* AgoraCollectionItem.swift */,
 				F3AE631425DC3F7D007E0F69 /* Main.storyboard */,
 				F3AE631725DC3F80007E0F69 /* Assets.xcassets */,
 				F3AE631925DC3F80007E0F69 /* LaunchScreen.storyboard */,
@@ -368,13 +368,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 278494H572;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Scaleable-UI-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "uk.rocketar.Scaleable-UI-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.example.Scaleable-UI-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -388,13 +388,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 278494H572;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Scaleable-UI-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "uk.rocketar.Scaleable-UI-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.example.Scaleable-UI-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
